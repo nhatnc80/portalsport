@@ -122,43 +122,6 @@
     <div class="clr"></div>
   </div>
 </div>
-  
-<!--Thêm mới 30/3 Supabase -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<script>
-const sb = supabase.createClient(
-  "https://zpvhxuwwgrtqbgziylbl.supabase.co",
-  "sb_publishable_u0kVgF9XCLTk5tD9M_xj9w_9lKguAgf"
-);
-
-// 🔥 Check login
-const student_id = localStorage.getItem("student_id");
-
-if (!student_id) {
-  alert("Vui lòng đăng nhập");
-  window.location.href = "login.html";
-}
-
-// 🔥 Tracking bài học
-async function goLesson(id, url) {
-  const student_id = localStorage.getItem("student_id");
-
-  await sb.from("lesson_views").insert({
-    student_id: student_id,
-    lesson_id: id,
-    viewed_at: new Date()
-  });
-
-  window.location.href = url;
-}
-
-// 🔥 Logout
-function logout() {
-  localStorage.clear();
-  window.location.href = "login.html";
-}
-</script>
-  
+   
 </body>
 </html>
