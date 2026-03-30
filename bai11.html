@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Video Player đẹp</title>
+
+<style>
+  body {
+    margin: 0;
+    padding: 40px;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+    display: flex;
+    justify-content: center;
+  }
+
+  .video-card {
+    width: 720px;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+  }
+
+  .video-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .video-wrapper {
+    position: relative;
+  }
+
+  video {
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid #eee;
+  }
+
+  .play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 102, 0, 0.85);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .play-overlay:hover {
+    background: #ff6600;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  .play-overlay::before {
+    content: '';
+    border-style: solid;
+    border-width: 12px 0 12px 18px;
+    border-color: transparent transparent transparent white;
+  }
+
+  .video-info {
+    padding: 16px 20px;
+  }
+
+  .video-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #0f172a;
+    margin-bottom: 6px;
+  }
+
+  .video-desc {
+    font-size: 14px;
+    color: #64748b;
+  }
+</style>
+
+</head>
+
+<body>
+
+<div class="video-card">
+  
+  <div class="video-wrapper">
+    <video id="myVideo" poster="https://via.placeholder.com/720x400" controls>
+      <source src="loikhuyenchuyengia.mp4" type="video/mp4">
+      Trình duyệt không hỗ trợ video.
+    </video>
+
+    <div class="play-overlay" onclick="playVideo()"></div>
+  </div>
+
+  <div class="video-info">
+    <div class="video-title">Kỹ thuật cầu lông - Giao cầu thuận tay</div>
+    <div class="video-desc">Video hướng dẫn chi tiết cho học sinh lớp 10</div>
+  </div>
+
+</div>
+
+<script>
+  function playVideo() {
+    const video = document.getElementById("myVideo");
+    video.play();
+  }
+</script>
+
+</body>
+</html>
