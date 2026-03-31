@@ -73,16 +73,29 @@
     👉 “Đánh nhẹ – đúng hướng – thấp qua lưới – phản xạ nhanh”
   </p>
 <script type="text/javascript">
-  // Lấy video và nút
   var video = document.getElementById('videoBai6');
   var button = document.getElementById('nopBaiBtn');
 
-  // Khi video kết thúc, hiển thị nút
+  // Biến lưu thời điểm hiện tại
+  var lastTime = 0;
+
+  // Chặn tua video
+  video.addEventListener('timeupdate', function() {
+    if(video.currentTime > lastTime + 0.5) {
+      // Người dùng tua nhanh, quay lại vị trí trước đó
+      video.currentTime = lastTime;
+    } else {
+      // Cập nhật vị trí mới
+      lastTime = video.currentTime;
+    }
+  });
+
+  // Khi video kết thúc, hiện nút nộp bài
   video.addEventListener('ended', function() {
     button.style.display = 'inline-block';
   });
 
-  // Khi click nút, chuyển sang trang upload.html
+  // Khi click nút, chuyển sang upload.html
   button.addEventListener('click', function() {
     window.location.href = 'upload.html';
   });
