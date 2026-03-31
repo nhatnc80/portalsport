@@ -40,10 +40,17 @@
   <div class="hbg"><img src="images/header_images.jpg" width="970" height="294" alt="" /></div>
   <div class="content">
     <div class="mainbar">
-     <video width="640" height="360" controls>
+     <video id="videoBai12" width="640" height="360" controls>
   <source src="bai2-kythuatdanhcaucaothuantay.mp4" type="video/mp4">
   Trình duyệt của bạn không hỗ trợ thẻ video.
 </video>
+      <!-- Nút nộp bài, ẩn ban đầu -->
+<div style="text-align:center; margin-top:20px;">
+<button id="nopBaiBtn" style="display:none; padding:12px 25px; font-size:16px; background-color:#ff6600; color:#fff; border:none; border-radius:8px; cursor:pointer;">
+Nộp bài
+</button>
+</div>
+
       <div style="max-width: 900px; width: 100%; background-color: #ffffff; padding: 30px; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.2); line-height: 1.6;">
 
   <h1 style="text-align: center; color: #ff6600; margin-bottom: 30px;">Bài 12: Kỹ thuật đánh cầu cao thuận tay</h1>
@@ -150,5 +157,33 @@
     <div class="clr"></div>
   </div>
 </div>
+  <script type="text/javascript">
+  var video = document.getElementById('videoBai12');
+  var button = document.getElementById('nopBaiBtn');
+
+  // Biến lưu thời điểm hiện tại
+  var lastTime = 0;
+
+  // Chặn tua video
+  video.addEventListener('timeupdate', function() {
+    if(video.currentTime > lastTime + 0.5) {
+      // Người dùng tua nhanh, quay lại vị trí trước đó
+      video.currentTime = lastTime;
+    } else {
+      // Cập nhật vị trí mới
+      lastTime = video.currentTime;
+    }
+  });
+
+  // Khi video kết thúc, hiện nút nộp bài
+  video.addEventListener('ended', function() {
+    button.style.display = 'inline-block';
+  });
+
+  // Khi click nút, chuyển sang upload.html
+  button.addEventListener('click', function() {
+    window.location.href = 'upload.html';
+  });
+</script>
 </body>
 </html>
