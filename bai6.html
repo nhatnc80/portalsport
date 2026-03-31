@@ -1,7 +1,13 @@
-<video width="640" height="360" controls>
+<body>
+<video id="videoBai6" width="640" height="360" controls>
   <source src="kythuatdanhcauthaptay.mp4" type="video/mp4">
   Trình duyệt của bạn không hỗ trợ thẻ video.
 </video>
+<div style="text-align:center; margin-top:20px;">
+  <button id="nopBaiBtn" style="display:none; padding:12px 25px; font-size:16px; background-color:#ff6600; color:#fff; border:none; border-radius:8px; cursor:pointer;">
+    Nộp bài
+  </button>
+</div>
 <p style="margin:6pt 0; font-size:20px; font-weight:bold; text-align:center; color:blue;">
     Bài 6: Kỹ thuật đánh cầu thấp thuận tay trong Cầu lông
   </p>
@@ -66,3 +72,19 @@
   <p style="margin:6pt 0; font-weight:bold;">
     👉 “Đánh nhẹ – đúng hướng – thấp qua lưới – phản xạ nhanh”
   </p>
+<script type="text/javascript">
+  // Lấy video và nút
+  var video = document.getElementById('videoBai6');
+  var button = document.getElementById('nopBaiBtn');
+
+  // Khi video kết thúc, hiển thị nút
+  video.addEventListener('ended', function() {
+    button.style.display = 'inline-block';
+  });
+
+  // Khi click nút, chuyển sang trang upload.html
+  button.addEventListener('click', function() {
+    window.location.href = 'upload.html';
+  });
+</script>
+</body>
