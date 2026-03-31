@@ -41,6 +41,10 @@
   <div class="content">
     <div class="mainbar">
         <!-- TIÊU ĐỀ -->
+      <video id="videoBai9" width="640" height="360" controls>
+  <source src="kythuatdanhcauthaptay.mp4" type="video/mp4">
+  Trình duyệt của bạn không hỗ trợ thẻ video.
+</video>
   <p style="margin:6pt 0; font-size:20px; font-weight:bold; text-align:center; color:blue;">
     Bài 9: Di chuyển ngang đánh cầu thấp thuận tay trong Cầu lông
   </p>
@@ -174,5 +178,20 @@
     <div class="clr"></div>
   </div>
 </div>
+  <script type="text/javascript">
+  // Lấy video và nút
+  var video = document.getElementById('videoBai9');
+  var button = document.getElementById('nopBaiBtn');
+
+  // Khi video kết thúc, hiển thị nút
+  video.addEventListener('ended', function() {
+    button.style.display = 'inline-block';
+  });
+
+  // Khi click nút, chuyển sang trang upload.html
+  button.addEventListener('click', function() {
+    window.location.href = 'upload.html';
+  });
+</script>
 </body>
 </html>
